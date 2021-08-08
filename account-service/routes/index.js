@@ -20,7 +20,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "/error" }),
   function (req, res) {
     const token = jwt.sign(
-      { id: req.user.sub, name: req.user.name },
+      { id: req.user.id, name: req.user.name },
       se.token_secret,
       {
         expiresIn: 60 * 60,
